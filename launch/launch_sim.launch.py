@@ -50,8 +50,16 @@ def generate_launch_description():
                     parameters=[twist_mux_params,{'use_sim_time': True}],
                     remappings=[('/cmd_vel_out','/cmd_vel')]
     )
+    '''
+        controller_params = os.path.join(get_package_share_directory(package_name),'config','my_controllers.yaml')
 
-
+        controller_manager_node = Node(
+            package='controller_manager',
+            executable='spawner.py',
+            arguments=['my_controller'],
+            parameters=[controller_params],
+        )
+    '''
 
     # Launch them all!
     return LaunchDescription([
@@ -61,3 +69,4 @@ def generate_launch_description():
         joystick,
         twist_mux_node
     ])
+    #controller_manager_node,
