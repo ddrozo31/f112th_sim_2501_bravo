@@ -4,6 +4,17 @@
     <!-- Example link -->
     <xacro:include filename="inertial_macros.xacro"/>
 
+
+    <joint name="base_footprint_joint" type="fixed">
+        <parent link="base_link"/>
+        <child link="base_footprint"/>
+        <origin xyz="0 0 0"/>    
+    </joint>
+
+    <!-- Example link -->
+    <link name="base_footprint">
+    </link>
+
     <!-- Example link -->
     <link name="base_link">
     </link>
