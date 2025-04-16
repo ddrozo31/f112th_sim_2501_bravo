@@ -5,6 +5,11 @@
     <gazebo>
         <plugin name="diff_drive" filename="libgazebo_ros_diff_drive.so">
 
+            <ros>
+                <!-- This remaps the default cmd_vel topic -->
+                <remapping>cmd_vel:=cmd_vel_diff</remapping>
+            </ros>
+
             <!-- wheels information -->
             <left_joint>left_wheel_joint</left_joint>
             <right_joint>right_wheel_joint</right_joint>
@@ -14,6 +19,8 @@
             <!-- limits -->
             <max_wheel_torque>200</max_wheel_torque>
             <max_wheel_acceleration>10.0</max_wheel_acceleration>
+
+
 
             <!-- outputs -->
             <odometry_frame>odom</odometry_frame>
